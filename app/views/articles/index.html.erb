@@ -1,0 +1,21 @@
+<%= link_to "主页", welcome_index_path %>
+<%= link_to '我的博客', controller: 'articles' %>
+<%= link_to '写博客', new_article_path %>
+<h1>Listing articles</h1>
+<table border="1" >
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %>
+        <td><%= link_to 'Destroy', article_path(article),
+                        method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>

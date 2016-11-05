@@ -1,0 +1,19 @@
+<%= link_to "主页", welcome_index_path %>
+<%= link_to '我的博客', articles_path %>
+<%= link_to '写博客', new_article_path %>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<%= render "comments/comment" %> <!--"comments/comment" == @article.comments-->
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_article_path(@article) %>
